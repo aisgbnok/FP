@@ -2,6 +2,8 @@
 
 This directory contains the datasets used in our project.
 
+> **Warning**\
+> The [t4-urls.csv](t4-urls.csv) is our processed url dataset, which is a combination of the below datasets.\
 
 | Dataset                                                                                        | Attribution     | File                                                   |
 |:-----------------------------------------------------------------------------------------------|:----------------|:-------------------------------------------------------|
