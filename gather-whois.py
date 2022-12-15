@@ -61,7 +61,7 @@ def gather_whois(urls, range_start, range_end):
 
         if response.domain_name != "null" and response.domain_name is not None:
             response['sample_url'] = url
-            samples.append(response)
+            samples.append(dict(response))
 
         print(f'Completed {i} of {len(urls)}, {i / len(urls) * 100}%')
 
@@ -72,7 +72,7 @@ def gather_whois(urls, range_start, range_end):
 def main():
     dataset = merge_raw()
 
-    gather_whois(dataset['url'].iloc[:20000].values, 0, 20000)
+    gather_whois(dataset['url'].iloc[:10000].values, 0, 10000)
 
 
 if __name__ == '__main__':
