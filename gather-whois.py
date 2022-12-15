@@ -53,8 +53,7 @@ def merge_raw(seed=75, save=False):
 def gather_whois(urls, range_start, range_end):
     samples = []
 
-    for url in urls:
-
+    for i, url in enumerate(urls):
         try:
             response = whois.whois(url)
         except whois.parser.PywhoisError:
@@ -63,6 +62,8 @@ def gather_whois(urls, range_start, range_end):
         if response.domain_name != "null" and response.domain_name is not None:
             response['sample_url'] = url
             samples.append(response)
+
+        print(f'Completed {i} of {len(urls)}, {i / len(urls) * 100}%')
 
     df = pd.DataFrame(samples)
     df.to_csv(f'datasets/t4-whois-{range_start}-{range_end}.csv')
