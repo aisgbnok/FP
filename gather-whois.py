@@ -56,7 +56,7 @@ def gather_whois(urls, range_start, range_end):
     for i, url in enumerate(urls):
         try:
             response = whois.whois(url)
-        except whois.parser.PywhoisError:
+        except:
             continue
 
         if response.domain_name != "null" and response.domain_name is not None:
